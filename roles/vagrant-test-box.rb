@@ -2,15 +2,27 @@
 name "vagrant-test-box"
 
 override_attributes(
+    "domain" => "exampletc2.com",
     "mysql" => {
         "server_root_password" => 'iloverandompasswordsbutthiswilldo',
         "server_repl_password" => 'iloverandompasswordsbutthiswilldo',
         "server_debian_password" => 'iloverandompasswordsbutthiswilldo'
+    },
+    "postfix" => {
+      "mail_type" => "master",
+      "main" => {
+        "mynetworks" => [ "127.0.0.0/8" ],
+        "inet-interfaces" => "loopback-only",
+        "mydomain" => "exampletc.com",
+        "myorigin" => "exampletc.com"
+       }
     }
 )
 
 # Run list function we mentioned earlier
 run_list(
+    "recipe[build-essential]",
+    "recipe[xml]",
     "recipe[apt]",
     "recipe[openssl]",
     "recipe[apache2]",
@@ -18,5 +30,6 @@ run_list(
     "recipe[mysql::client]",
     "recipe[mysql::server]",
     "recipe[php]",
-    "recipe[php::module_mysql]"
+    "recipe[php::module_mysql]",
+    "recipe[postfix]"
 )

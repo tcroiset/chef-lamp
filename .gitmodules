@@ -6,10 +6,19 @@
 	url = https://github.com/opscode-cookbooks/apache2.git
 [submodule "cookbooks/mysql"]
 	path = cookbooks/mysql
-	url = https://github.com/opscode-cookbooks/mysql.git
+	url = https://github.com/tcroiset/mysql.git
 [submodule "cookbooks/php"]
 	path = cookbooks/php
 	url = https://github.com/opscode-cookbooks/php.git
 [submodule "cookbooks/openssl"]
 	path = cookbooks/openssl
 	url = https://github.com/opscode-cookbooks/openssl.git
+[submodule "cookbooks/postfix"]
+	path = cookbooks/postfix
+	url = https://github.com/tcroiset/postfix.git
+[submodule "cookbooks/build-essential"]
+	path = cookbooks/build-essential
+	url = https://github.com/opscode-cookbooks/build-essential
+[submodule "cookbooks/xml"]
+	path = cookbooks/xml
+	url = https://github.com/opscode-cookbooks/xml
